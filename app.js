@@ -23,14 +23,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// main().catch(err => console.log(err));
+// async function main() {
+//     mongoose.set('strictQuery', true);
+//   await mongoose.connect('mongodb://localhost:27017/userDB');  
+// //   await mongoose.connect('mongodb+srv://crystal_clear:An754d57ee6gyPDg@cluster0.qzdyhxz.mongodb.net/blogDB?retryWrites=true&w=majority')
+//   }
 main().catch(err => console.log(err));
 async function main() {
-    mongoose.set('strictQuery', true);
-  await mongoose.connect('mongodb://localhost:27017/userDB');  
-//   await mongoose.connect('mongodb+srv://crystal_clear:An754d57ee6gyPDg@cluster0.qzdyhxz.mongodb.net/blogDB?retryWrites=true&w=majority')
-  }
+  mongoose.set('strictQuery', true);
+  //mongoose.connect(process.env.CONNECT_URL);
+  mongoose.connect(process.env.CONNECT_URLCAP)
+  console.log("connected to mongodb server");
+}
 
-mongoose.set('strictQuery', true);
+
 const userSchema = new mongoose.Schema({
     email:String,
     password:String,
