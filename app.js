@@ -33,7 +33,7 @@ main().catch(err => console.log(err));
 async function main() {
   mongoose.set('strictQuery', true);
   //mongoose.connect(process.env.CONNECT_URL);
-  mongoose.connect(process.env.CONNECT_URLCAP)
+  mongoose.connect("mongodb://root:root@144.24.143.145:1234/secretsDB?authSource=admin")
   console.log("connected to mongodb server");
 }
 
